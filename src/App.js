@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/header/Header";
 import HomePage from "./page/HomePage";
 import About from "./page/About";
-import Contact from "./page/Contact";
+import Contact from "./page/Contact Us/Contact";
 import Cart from "./page/Cart";
 import Profile from "./page/Profile";
 import CartContextProvider from "./store/CartContext";
@@ -23,6 +23,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
           <Toaster />

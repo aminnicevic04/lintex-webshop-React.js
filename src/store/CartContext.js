@@ -45,7 +45,7 @@ export default function CartContextProvider({ children }) {
         console.log(total, "else");
       }
     });
-    return total;
+    return total.toFixed(2);
   };
   const cartSize = () => shoppingCart.length;
 
