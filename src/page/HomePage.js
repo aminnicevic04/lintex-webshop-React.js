@@ -6,6 +6,10 @@ import Card from "../components/productCard/Card";
 function HomePage() {
   const { addToCart } = useContext(CartContext);
 
+  const productInStorage = localStorage.getItem("product");
+
+  console.log(JSON.parse(productInStorage));
+
   return (
     <div
       style={{

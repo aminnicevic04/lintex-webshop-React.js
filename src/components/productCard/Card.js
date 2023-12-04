@@ -5,6 +5,13 @@ import { CartContext } from "../../store/CartContext";
 function Card({ product, addToCart }) {
   const { inCart } = useContext(CartContext);
 
+  const inStorage = () => {
+    const storageProduct = JSON.parse(localStorage.getItem(product.id));
+
+    if (storageProduct) return true;
+    else return false;
+  };
+
   return (
     <div className="container">
       <div className="image">
@@ -18,7 +25,7 @@ function Card({ product, addToCart }) {
           <div className="btns">
             {product.discount && <button disabled>{product.discount}%</button>}
             {/* <button onClick={addToCart}>Add to cart</button> */}
-            {inCart(product) ? (
+            {inCart(product) || inStorage() ? (
               <button
                 style={{ backgroundColor: "gray", border: "none" }}
                 disabled

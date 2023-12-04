@@ -19,6 +19,7 @@ export default function CartContextProvider({ children }) {
       toast.error("already in Cart");
     } else {
       setShoppingCart((prev) => [...prev, product]);
+      localStorage.setItem(product.id, JSON.stringify(product));
       notify();
     }
   };
@@ -39,13 +40,11 @@ export default function CartContextProvider({ children }) {
     shoppingCart.map((prod) => {
       if (prod.discount) {
         total += prod.price - prod.price * (prod.discount / 100);
-        console.log(total, "if");
       } else {
         total += prod.price;
-        console.log(total, "else");
       }
     });
-    return total.toFixed(2);
+    return total;
   };
   const cartSize = () => shoppingCart.length;
 
